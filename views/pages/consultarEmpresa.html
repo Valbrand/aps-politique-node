@@ -97,7 +97,8 @@
 						<th>CEP</th>
 					</tr>
 				{{#each companies}}
-					<tr>
+					
+					<tr onclick="ClickHandler (this, '{{id}}', event, '{{getUrl 'removeCompany'}}?id={{id}}', 'provisorio')" class="tabela-linha">
 						<td class="Name">{{ name }}</td>
 						<td class="Branch">{{ branch }}</td>
 						<td class="Background">{{ background }}</td>
@@ -111,13 +112,7 @@
 						<td class="state">{{ address.state }}</td>
 						<td class="zip">{{ address.zip }}</td>
 					</tr>
-				{{/each}}
-						<!--
-						<tr onclick="ClickHandler(this, '{{instance.pk}}', '{{ csrf_token }}', event, '{% url 'RemoverEmpresa' instance.pk %}', '{% url 'EditarEmpresa' instance.pk %}')" class="tabela-linha">-->
-
-				
-
-			
+				{{/each}}		
 				</table>
 			</div>
 

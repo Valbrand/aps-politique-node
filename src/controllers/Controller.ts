@@ -93,6 +93,23 @@ class Controller {
         reply(TEMPLATE_NAMES.SEARCH_EVENT);
     }
 
+    public removeCompany = (request, reply) => {
+        this.facade.getPartnerCompanies({'_id' : request.query['id']}, (err, companies) => {
+            if (companies[0]){
+                var partnerCompany = PartnerCompanyModel.hydrateFromPlainObject(companies[0]);
+                this.facade.removePartnerCompany(partnerCompany, (err) => {
+                    request.query = {};
+                    this.searchCompanies(request, reply);
+                });    
+            } else{
+                // no company found with that id
+            }
+
+            
+        });
+        
+    }
+
 }
 
 export = Controller;

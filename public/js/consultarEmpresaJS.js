@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 });
 
-function ClickHandler(row, id, token, e, urlRemover, urlEditar) {
+function ClickHandler(row, id, e, urlRemover, urlEditar) {
     empresaId = id;
     cells = row.getElementsByTagName("td");
     ramoAtuacao = cells[0].firstChild;
